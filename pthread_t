@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <pthread.h>
+
+pthread_t thread1;
+pthread_t  thread2;
+pthread_mutex_t mutex;
+void* call_1(void *arg){
+	pthread_mutex_lock(&mutex);
+	char* nome = "Paulo";
+	printf("%s\t",nome);
+
+	pthread_mutex_unlock(&mutex);
+}
+void* call_2(void *arg){
+	pthread_mutex_lock (&mutex);
+	char* nome = "Britto";
+	printf("%s",nome);
+	pthread_mutex_unlock(&mutex);
+}
+
+int main(void ){
+	pthread_mutex_init(&mutex,NULL);
+	pthread_create(&thread1, NULL, call_1,NULL);
+	pthread_join(thread1, NULL);
+	pthread_create(&thread2,NULL,call_2,NULL);
+	pthread_join(thread2, NULL);
+	pthread_mutex_destroy(&mutex);
+	return 0;
+
+}
