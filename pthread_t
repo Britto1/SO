@@ -1,3 +1,5 @@
+//Paulo de Brito
+//Programa cria 2 threads que executa duas chamadas para juntar as strings.
 #include <stdio.h>
 #include <pthread.h>
 
