@@ -1,3 +1,6 @@
+/*Utilizando um vetor de mutex para a sincronização, sera realizado o calculo do valor desejado passado por argumento do fib.
+*/
+
  #include <stdio.h>
  #include <stdlib.h>
  #include <pthread.h>
